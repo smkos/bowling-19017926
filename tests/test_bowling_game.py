@@ -17,3 +17,15 @@ def test_all_ones_scores_twenty():
         game.roll(1)
 
     assert game.score() == 20
+
+
+def test_spare_adds_next_roll_as_bonus():
+    game = Game()
+
+    game.roll(5)
+    game.roll(5)
+    game.roll(3)
+    for _ in range(17):
+        game.roll(0)
+
+    assert game.score() == 16
